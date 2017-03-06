@@ -22,7 +22,7 @@ function autoLoadClass($class_name)
 }
 spl_autoload_register('zcms\autoLoadClass');
 
-$database = new PDODB(
+$database = new PdoDatabase(
     Setting::DB_HOST,
     Setting::DB_USERNAME,
     Setting::DB_PASSWORD,

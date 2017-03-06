@@ -11,7 +11,7 @@ namespace zcms\page;
 
 use zcms\Setting;
 
-class News
+class Announcement
 {
 
     /**

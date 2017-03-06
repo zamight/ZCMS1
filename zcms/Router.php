@@ -8,6 +8,7 @@
 
 namespace zcms;
 
+use zcms\page\Announcement;
 use zcms\page\News;
 
 class Router
@@ -39,7 +40,7 @@ class Router
 
     public static function getNews()
     {
-        self::$htmlOutput = News::getAll();
+        self::$htmlOutput = Announcement::getAll();
     }
 
     /**

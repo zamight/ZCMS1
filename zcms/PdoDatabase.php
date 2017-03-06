@@ -8,7 +8,7 @@
 
 namespace zcms;
 
-class PDODB implements DatabaseInterface
+class PdoDatabase implements DatabaseInterface
 {
 
     private $db;
