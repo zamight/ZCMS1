@@ -6,7 +6,7 @@
  * Time: 6:36 PM
  */
 
-namespace zcms;
+namespace Zcms;
 
 use zcms\page\Announcement;
 use zcms\page\News;
@@ -14,7 +14,7 @@ use zcms\page\News;
 class Router
 {
 
-    private static $htmlOutput;
+    private static $htmlOutput = "";
 
     public static function clientToPage()
     {
@@ -44,6 +44,7 @@ class Router
     }
 
     /**
+     * Return the html output
      * @return mixed
      */
     public static function getHtmlOutput(): string
@@ -52,6 +53,7 @@ class Router
     }
 
     /**
+     * Set the html output
      * @param mixed $htmlOutput
      */
     public static function setHtmlOutput(string $htmlOutput)
@@ -59,5 +61,12 @@ class Router
         self::$htmlOutput = $htmlOutput;
     }
 
-
+    /**
+     * Append the html output
+     * @param mixed $htmlOutput
+     */
+    public static function appendHtmlOutput(string $htmlOutput)
+    {
+        self::$htmlOutput .= $htmlOutput;
+    }
 }

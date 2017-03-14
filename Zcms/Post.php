@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
-class Thread implements ThreadInterface
+class Post implements PostInterface
 {
 
 }

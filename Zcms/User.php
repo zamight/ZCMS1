@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
 class User implements UserInterface
 {
@@ -18,16 +18,22 @@ class User implements UserInterface
      * @var
      */
     private $database;
+    private $userInformation;
 
     /**
      * User constructor.
-     * @param $database
+     * @param bool $uid
      */
-    public function __construct($database)
+    public function __construct($uid = false)
     {
-        $this->database = $database;
-    }
+        $userQuerySql = "SELECT * FROM `user` WHERE uid = ? LIMIT 1";
 
+        // Set Database
+        $this->database = Setting::getDatabase();
+
+        // Get User
+        $this->userInformation = $this->database->getRow($userQuerySql, [$uid]);
+    }
 
     /**
      * @return bool
@@ -54,44 +60,49 @@ class User implements UserInterface
     }
 
     /**
+     * Return this displayname.
      * @return string
      */
     public function getDisplayName(): string
     {
-        // TODO: Implement getDisplayName() method.
+        return $this->userInformation['display_name'];
     }
 
     /**
+     * Return this username.
      * @return string
      */
     public function getUsername(): string
     {
-        // TODO: Implement getUsername() method.
+        return $this->userInformation['username'];
     }
 
     /**
-     * @return int
+     * Returns this user ID. Requires this to be true.
+     * @return int User ID.
      */
-    public function getId(): int
+    public function getUid(): int
     {
-        // TODO: Implement getId() method.
+        return (int) $this->userInformation['uid'];
     }
 
     /**
      * @param string $displayName
-     * @return bool
+     * @return bool Return if successful.
      */
     public function setDisplayName(string $displayName): bool
     {
-        // TODO: Implement setDisplayName() method.
+        $rowcount = $this->database->updateRow('user', ['display_name' => $displayName], ['uid' => $this->getUid()]);
+        return $rowcount > 0;
     }
 
     /**
-     * @param string $password
+     * @param string $password Value of password to change to.
      * @return bool
      */
     public function setPassword(string $password): bool
     {
         // TODO: Implement setPassword() method.
+        return false;
     }
 }

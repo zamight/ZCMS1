@@ -6,7 +6,7 @@
  * Time: 3:43 PM
  */
 
-namespace zcms;
+namespace Zcms;
 
 
 class Setting
@@ -16,9 +16,9 @@ class Setting
     const DB_USERNAME = 'root';
     const DB_PASSWORD = 'root';
     const DB_DATABASE = 'zcms';
-    const DB_PORT = 8888;
+    const DB_PORT = 8889;
     const DEFAULT_CLAN = 'support';
-    const DEFAULT_PAGE = 'news';
+    const DEFAULT_PAGE = 'announcement';
 
     private static $database;
     private static $user;

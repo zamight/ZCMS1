@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
 error_reporting(E_ALL);
 
@@ -20,7 +20,7 @@ function autoLoadClass($class_name)
 {
     include __DIR__  . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class_name) . '.php';
 }
-spl_autoload_register('zcms\autoLoadClass');
+spl_autoload_register('Zcms\autoLoadClass');
 
 $database = new PdoDatabase(
     Setting::DB_HOST,
@@ -34,12 +34,20 @@ if (!$database->isConnected()) {
     die($database->getException());
 }
 
-include __DIR__ . '/zcms/functions.php';
+include __DIR__ . '/Zcms/functions.php';
 
 Setting::setDatabase($database);
 
-$user = new User();
+$user = new User(1);
 Setting::setUser($user);
+if(!Setting::getUser()->setDisplayName("z"))
+    print Setting::getDatabase()->getException();
+
+$form = new Form("UserID: " . Setting::getUser()->getUid());
+$form->addTextField("Username:", "helloworld");
+$form->addPasswordTextField("Password:", "password");
+$form->addSubmitButton("Login", "login_button");
+echo $form->generateForm();
 
 Router::clientToPage();
-echo Router::getHtmlOutput();
+//echo Router::getHtmlOutput();

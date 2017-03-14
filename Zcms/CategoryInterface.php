@@ -8,9 +8,8 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
-class Forum implements ForumInterface
-{
+interface CategoryInterface {
 
 }

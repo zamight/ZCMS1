@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
-class Post implements PostInterface
+class Forum implements ForumInterface
 {
 
 }

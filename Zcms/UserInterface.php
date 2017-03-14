@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
 interface UserInterface
 {
@@ -16,7 +16,7 @@ interface UserInterface
     public function isLoggedIn(): bool;
     public function isSuperAdmin(): bool;
     public function isMod(): bool;
-    public function getId(): int;
+    public function getUid(): int;
     public function getDisplayName(): string;
     public function getUsername(): string;
     public function setDisplayName(string $displayName): bool;

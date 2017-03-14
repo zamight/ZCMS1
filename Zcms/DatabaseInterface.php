@@ -8,12 +8,14 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
 interface DatabaseInterface
 {
 
     public function isConnected(): bool;
     public function getException(): string;
+    public function getRow(string $sqlQuery, array $bind): array;
+    public function updateRow(string $table, array $update, array $where): int;
 
 }

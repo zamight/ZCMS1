@@ -8,8 +8,9 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
-interface CategoryInterface {
+class Category implements CategoryInterface
+{
 
 }

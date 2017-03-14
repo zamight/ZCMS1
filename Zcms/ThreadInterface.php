@@ -8,9 +8,10 @@
 
 declare(strict_types=1);
 
-namespace zcms;
+namespace Zcms;
 
-class Category implements CategoryInterface
+
+interface ThreadInterface
 {
 
 }

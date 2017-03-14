@@ -21,5 +21,4 @@ class Announcement
     {
         return Setting::getClanName();
     }
-
 }
